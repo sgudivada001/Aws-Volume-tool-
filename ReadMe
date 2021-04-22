@@ -1,0 +1,40 @@
+ec2-ckup      Sai Gudivada    HomeWork5
+
+The tool was written in Python, it helps a user to
+to perform a backup into an aws ec2 volume. The tool
+is a collection of various functions to perform the
+required operations. I have used subprocess to pass the
+commands and read the outputs from it.
+
+Functionality of the tool:
+-checks if the directory provided is valid
+-makes sure the size of the volume provided is enough to
+perform the backup
+-If the given backup directory is root, it checks if the user
+sudo user and terminates if it is not a sudo
+If volume is provided:
+ 	The tool spins up an instance in the same availability
+zone of the volume. Before spinning up the instance it checks
+for the following details.
+If volume is not provided:
+	It spins up an instance and then creates a volume in the
+same availability zone of the instance.
+
+-attach the volume to the instance and tar the directory to
+the given volume.
+-terminate the instance.
+
+- Used Red hat image id's to support the tool across many regions.
+
+Lessons Learned:
+
+First of all i tried to address feedback provided in the
+homework 2, some of the key take away from the homework
+are tried to use functions to perform operations, handled
+different availability zones with the help of mapping function.
+used ec2 wait instead of time.sleep(),Used Error and exit statements.
+
+Challenges:
+-waiting for the instance to get ready for SSH was so long which resulted
+in long waiting to perform the SSH
+
